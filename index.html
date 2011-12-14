@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/fxn8teg.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<style type="text/css">
+/*------------------------------------- 
+Theme by Adam Whitcroft
+adamwhitcroft.com
+@adamwhitcroft
+
+Please feel free to use any portion of
+this theme - just don't take credit for
+the work as that's not cool.
+-------------------------------------*/
+/*------------------------------------- 
+RESET
+-------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, 
+caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img,abbr,acronym { 
+    border:0;
+}
+address,caption,cite,dfn,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    padding:0;
+    margin:0;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+    content:'';
+    content: none;
+}
+/*------------------------------------- 
+GENERAL LAYOUT
+-------------------------------------*/
+html {
+    background:#fff;
+    font-family:'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size:100%;
+    color:#535353;
+    overflow-y:scroll;
+    -webkit-text-size-adjust: none;         
+}
+body {
+    min-height:100%;
+}   
+.wrapper {
+    max-width:500px;
+    padding:20px;
+    margin:0 auto;
+    position:relative;
+}
+a,
+a:link{
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+}
+a:hover {
+    color:#999;
+}
+ul {
+    list-stlye-type:square;
+    margin:0 0 1.5em 1.5em;
+}
+blockquote {
+    font-family: futura-pt, Arial, Helvetica, sans-serif;
+    font-weight:400;
+    border-left:2px solid #efefef;  
+    padding-left:3em;
+}
+blockquote small {
+    display:block;
+    font-style:italic;
+}
+blockquote small:before {
+    content:"\2014 \00A0";
+}
+p,h1,h2,h3,h5,h6,blockquote,footer {
+    font-size:1em;
+    line-height:1.75em;
+    margin-bottom:1.5em;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: futura-pt, Arial, Helvetica, sans-serif;
+    font-weight:700;
+}
+h1 {
+    font-size:1.5em;
+}
+h2 {
+    font-size:1.25em;
+}
+small {
+    font-size:0.75em;
+}
+ul {
+    margin-bottom:1.5em;
+}
+figure {
+    margin:0;
+    padding:0;
+    position:relative; 
+}
+figure img {
+    display:block;  
+}
+figure .zoom,
+figure .permalink{
+    opacity:0.8;
+    text-indent:-9999em;
+    position:absolute;
+    display:block;
+    width:40px;
+    height:40px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    border-radius:20px;
+    -webkit-transition:200ms ease-in;
+    -moz-transition:200ms ease-in;
+    transition:200ms ease-in;
+}
+figure .zoom {
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#ffffff url(http://static.tumblr.com/vkmeof6/o3zlw42g4/zoom.png) no-repeat center center;  
+}
+figure .permalink {
+    position:absolute;
+    top:10px;
+    right:60px;
+    background:#ffffff url(http://static.tumblr.com/vkmeof6/Wsulw5r6x/permalink.png) no-repeat center center;  
+}
+figure .zoom:hover,
+figure .permalink:hover{
+    opacity:1;
+}
+figcaption {
+    background:#efefef;
+    padding:10px;
+    font-size:0.75em;
+    margin-bottom:1.5em;
+}
+figcaption p {
+    margin:0;   
+    font-style:italic;
+}
+.toggle {
+    cursor:help;
+}
+img {
+    max-width:100%;
+    height:auto;
+    font-style:italic;
+}
+embed,object,video {
+    max-width:100%;
+    height:auto;
+}
+::-webkit-selection, 
+::-moz-selection,
+::selection {
+    color:#343434;
+    background:#f5d77f;
+    text-shadow:none;
+}
+a::-webkit-selection, 
+a::-moz-selection,
+a::selection {
+    color:#d63822;
+}
+/* About Panel */
+.about {
+    background:#343434;
+    color:#fff;
+    padding:20px 0;
+    box-shadow:inset 0 0 5px #262626;
+} 
+.about p {
+    margin:0;
+}
+.about a {
+    color:#f5d77f;
+    font-weight:normal;
+}
+.about a:hover {
+    color:#d63822;
+}
+/* Header */
+header {
+    overflow:hidden;
+    border-bottom:1px solid #efefef;
+}
+header h1 {
+    font-size:2em;
+    text-align:center;
+    margin-top:1.5em;
+}
+header ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    float:right;
+}
+header ul li {
+    float:left;
+    margin-left:20px;
+}
+/* Pagination */
+nav[role="navigation"] {
+    overflow:hidden;
+    background:#efefef;
+    padding:10px;
+    font-size:0.75em;
+}
+nav[role="navigation"] .pagination-next {
+    float:left;
+}
+nav[role="navigation"] .pagination-prev {
+    float:right;
+}
+/* Footer */
+footer[role="contentinfo"] {
+    font-size:0.75em;
+    color:#999;
+    text-align:center;
+}
+/*------------------------------------- 
+POSTS
+-------------------------------------*/  
+article.post {
+    position:relative;
+    margin-bottom:3em;
+}             
+article.post .meta {
+    font-size:0.75em;
+    line-height:1.5em;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+/* Seperators */
+.seperator {
+    text-align:center;
+    height:0px;
+    margin-bottom:3em;
+    border-top:1px solid #efefef;
+    border-bottom:1px solid #efefef;
+}
+.seperator span {
+    position:relative;
+    color:#fff;
+    background:#efefef;
+    display:inline-block;
+    width:24px;
+    height:24px;
+    line-height:24px;
+    top:-12px;
+    -webkit-border-radius:24px;
+    -moz-border-radius:24px;
+    border-radius:24px;
+}
+/* Post Meta */
+.post-meta {
+    
+}
+/* Post Notes */
+.notes-container { 
+    margin-top:1.5em;
+}
+.notes-container .notes {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.notes-container .notes li {
+    padding:10px 0;
+    border-bottom:1px solid #efefef;
+    overflow:hidden;
+}
+.notes-container .notes li:last-child {
+    border:0;
+}
+.notes-container .notes li img {
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    display:block;
+    float:left;
+}
+.notes-container .notes li .action {
+    font-size:0.75em;
+    float:left;
+    margin-left:10px;
+    line-height:16px;
+}
+/* Chat Post */
+article.chat {
+    
+}
+article.chat ul.chatter {
+    list-style:none;
+    margin-left:0;
+    padding:0;
+}
+article.chat ul.chatter li {
+    padding:5px 0;
+}
+article.chat ul.chatter li.even {
+    text-indent:1em;
+    font-style:italic;
+}
+/* Answer Post */
+article.answer {
+     
+}
+article.answer .answer-question p {
+    font-family: futura-pt, Arial, Helvetica, sans-serif;
+    font-weight:700;
+    margin:0;
+    font-size:1.5em;
+    line-height:1.5em;    
+}    
+</style>
+</head>
+<body>
+
+<div class="about">
+    <div class="wrapper">
+    <p>{Description}</p>
+    </div><!--/wrapper-->
+</div><!--/about-->
+
+<header class="wrapper">
+    <h1><a href="/">{Title}</a></h1>
+    <ul>
+        <li><a class="toggle" href="#">About</a></li>
+        <li><a href="/ask">Ask</a></li>
+        <li><a href="/archive">Archive</a></li>
+    </ul>
+</header>
+
+<section class="wrapper">
+
+{block:Posts}
+
+<article class="post {block:Text}text{/block:Text}{block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Quote}quote{/block:Quote}{block:Link}link{/block:Link}{block:Chat}chat{/block:Chat}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Answer}answer{/block:Answer}">
+{block:Text}
+{block:Title}
+    <h1><a href="{Permalink}" title="{Title}">{Title}</a></h1>{/block:Title}
+    {Body}
+{/block:Text}
+
+{block:Photo}
+    <figure>
+    <a href="{LinkURL}" class="zoom">Z</a>
+    <a href="{Permalink}" class="permalink">&infin;</a>
+        <img src="{PhotoURL-500}" class="photo" alt="{PhotoAlt}" />
+    {block:Caption}
+    <figcaption>
+    {Caption}
+    </figcaption>
+    {/block:Caption}
+    </figure>
+{/block:Photo}
+
+{block:Photoset}
+    <figure>
+    {Photoset-500}
+    </figure>
+    {block:Caption}
+    <figcaption>
+        {Caption}
+    </figcaption>
+    {/block:Caption}
+{/block:Photoset}
+
+{block:Quote}
+    <blockquote>
+    {Quote}
+    <small>
+        {block:Source}{Source}{/block:Source}
+    </small>
+    </blockquote>
+{/block:Quote}
+
+{block:Link}
+    <h1><a href="{URL}" {Target}>{Name}</a></h1>
+    {block:Description}
+        {Description}
+    {/block:Description}
+{/block:Link}
+
+{block:Chat}
+    {block:Title}
+    <h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+    <ul class="chatter">
+        {block:Lines}
+        <li class="{Alt}">
+            {block:Label}<span class="label">{Label}</span>{/block:Label}{Line}
+        </li>
+        {/block:Lines}
+    </ul>
+{/block:Chat}
+
+{block:Audio}
+    {AudioPlayerGrey}
+    {block:Caption}{Caption}{/block:Caption}
+{/block:Audio}   
+
+{block:Video}
+    {Video-500}
+    {block:Caption}{Caption}{/block:Caption}
+{/block:Video}
+
+{block:Answer}
+    <div class="answer-question"><p>Q: {Question}</p></div>
+    <div class="answer-answer">{Answer}</div>
+    <footer><small>From {Asker}</small></footer>
+{/block:Answer}
+
+
+    <ul class="meta">
+        <li class="post-date">{block:Date}Posted: {DayOfMonth} {Month} {Year}{/block:Date}</li>
+    {block:NoteCount}
+        <li class="post-notes">Notes: <a href="{Permalink}#notes">{NoteCount}</a></li>
+    {/block:NoteCount}
+        <li class="post-shortURL">Short URL: <a href="{ShortURL}" title="Short URL for {Title}">{ShortURL}</a></li>
+    {block:HasTags}
+        <li class="post-tags">Tagged: {block:Tags}<a href="{TagURL}" class="single-tag">{Tag}</a> {/block:Tags}</li>
+    {/block:HasTags}
+    </ul> 
+    
+{block:PostNotes}
+    <div class="notes-container">
+    <h2>Notes:</h2>
+        {PostNotes}
+    </div>
+{/block:PostNotes}     
+
+</article>
+
+<div class="seperator">
+<span>&bull;</span>
+</div><!--/seperator-->
+
+{/block:Posts}
+
+</section>
+
+{block:Pagination}
+    <nav role="navigation" class="wrapper">
+        {block:NextPage}<div class="pagination-next"><a href="{NextPage}">&larr; Older</a></div>{/block:NextPage}
+        {block:PreviousPage}<div class="pagination-prev"><a href="{PreviousPage}">Newer &rarr;</a></div>{/block:PreviousPage}
+    </nav>
+{/block:Pagination}    
+
+<footer class="wrapper" role="contentinfo">
+    <p><a href="http://twitter.com/#!/adamwhitcroft">Follow me</a> on Twitter. Theme by <a href="http://adamwhitcroft.com/">Adam Whitcroft</a>. Fonts via <a href="https://typekit.com/">Typekit</a></p>
+</footer>
+
+<script>
+$(document).ready(function() {
+ // hides the definitionbox as soon as the DOM is ready
+  $('.about').hide(); 
+ // toggles the definitionbox on clicking the noted link  
+    $('.toggle').click(function(e){
+        e.preventDefault();
+       $('.about').toggleClass('showing hidden').slideToggle('fast');
+    });;
+});
+</script>           
+</body>
+</html>
