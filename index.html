@@ -495,9 +495,7 @@ article.answer .answer-question p {
 
 <script>
 $(document).ready(function() {
- // hides the definitionbox as soon as the DOM is ready
   $('.about').hide(); 
- // toggles the definitionbox on clicking the noted link  
     $('.toggle').click(function(e){
         e.preventDefault();
        $('.about').toggleClass('showing hidden').slideToggle('fast');
