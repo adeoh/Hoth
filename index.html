@@ -146,6 +146,9 @@ abbr {
 small {
     font-size:0.75em;
 }
+span.highlight {
+    background:#fff8ae;
+}
 figure {
     margin:0;
     padding:0;
@@ -288,6 +291,9 @@ article.post .meta {
     list-style:none;
     margin:0;
     padding:0;
+}
+article.post .post-tweet {
+    margin-top:1.5em;
 }
 /* Seperators */
 .seperator {
@@ -480,6 +486,13 @@ article.answer .answer-question p {
         <li class="post-tags">Tagged: {block:Tags}<a href="{TagURL}" class="single-tag">{Tag}</a> {/block:Tags}</li>
     {/block:HasTags}
     </ul> 
+    
+{block:PermalinkPage}  
+<div class="post-tweet">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="AdamWhitcroft" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+</div>
+{/block:PermalinkPage} 
     
 {block:PostNotes}
     <div class="notes-container">
