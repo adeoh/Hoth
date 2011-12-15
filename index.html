@@ -124,11 +124,27 @@ h1 {
 h2 {
     font-size:1.25em;
 }
-small {
-    font-size:0.75em;
-}
 ul {
     margin-bottom:1.5em;
+}
+q,i,em,cite {
+    font-style:italic;  
+}
+b,strong {
+    font-weight:bold;
+}
+s,del {
+    text-decoration:line-through;
+}
+mark {
+    background:#ffdd3d;
+}
+abbr {
+    cursor:help;
+    border-bottom:1px dotted #999;
+}
+small {
+    font-size:0.75em;
 }
 figure {
     margin:0;
@@ -501,6 +517,17 @@ $(document).ready(function() {
        $('.about').toggleClass('showing hidden').slideToggle('fast');
     });;
 });
-</script>           
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18418896-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>          
 </body>
 </html>
